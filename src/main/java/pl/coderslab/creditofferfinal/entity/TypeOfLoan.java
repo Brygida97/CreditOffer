@@ -20,6 +20,5 @@ public class TypeOfLoan {
     @Column(name = "name_Type")
     private String name_Type;
 
-//----
 }
 

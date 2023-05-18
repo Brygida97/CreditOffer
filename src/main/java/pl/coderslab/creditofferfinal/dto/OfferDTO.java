@@ -18,7 +18,7 @@ public class OfferDTO {
     private BigDecimal commission_percent;
     private Integer period_in_months;
     private String url;
-    private Long bankId;
-    private TypeOfLoan typeOfLoan;
+    private BankDTO bank;
+    private TypeOfLoanDTO typeOfLoan;
 
 }

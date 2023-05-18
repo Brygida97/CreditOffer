@@ -49,6 +49,4 @@ public class Offer {
     @JoinColumn(name = "type_id", nullable = false)
     private TypeOfLoan typeOfLoan;
 
-    public void setBank(long longValue) {
-    }
 }

@@ -1,12 +1,14 @@
 package pl.coderslab.creditofferfinal.mapper;
 
+import pl.coderslab.creditofferfinal.dto.BankDTO;
 import pl.coderslab.creditofferfinal.dto.OfferDTO;
+import pl.coderslab.creditofferfinal.dto.TypeOfLoanDTO;
+import pl.coderslab.creditofferfinal.entity.Bank;
 import pl.coderslab.creditofferfinal.entity.Offer;
 import pl.coderslab.creditofferfinal.entity.TypeOfLoan;
-import pl.coderslab.creditofferfinal.repository.BankRepository;
-import pl.coderslab.creditofferfinal.repository.TypeOfLoanRepository;
 
-public class OffertMapper {
+
+public class OfferMapper {
 
     public static OfferDTO toDTO (Offer offer){
         OfferDTO offerDTO = new OfferDTO();
@@ -18,8 +20,19 @@ public class OffertMapper {
         offerDTO.setCommission_percent(offer.getCommission_percent());
         offerDTO.setPeriod_in_months(offer.getPeriod_in_months());
         offerDTO.setUrl(offer.getUrl());
-        offerDTO.setBankId(offer.getBank().getId());
-        offerDTO.setTypeOfLoan(offer.getTypeOfLoan());
+
+        TypeOfLoanDTO typeOfLoanDTO = new TypeOfLoanDTO();
+        typeOfLoanDTO.setId(offer.getTypeOfLoan().getId());
+        typeOfLoanDTO.setName_Type(offer.getTypeOfLoan().getName_Type());
+
+        offerDTO.setTypeOfLoan(typeOfLoanDTO);
+
+        BankDTO bankDTO = new BankDTO();
+        bankDTO.setId(offer.getBank().getId());
+        bankDTO.setName(offer.getBank().getName());
+
+        offerDTO.setBank(bankDTO);
+
         return offerDTO;
     }
 
@@ -33,8 +46,19 @@ public class OffertMapper {
         offer.setCommission_percent(offerDTO.getCommission_percent());
         offer.setPeriod_in_months(offerDTO.getPeriod_in_months());
         offer.setUrl(offerDTO.getUrl());
-        offer.setBank(offerDTO.getBankId().longValue());
-        offer.setTypeOfLoan(offerDTO.getTypeOfLoan());
+
+        TypeOfLoan typeOfLoan = new TypeOfLoan();
+        typeOfLoan.setId(offerDTO.getTypeOfLoan().getId());
+        typeOfLoan.setName_Type(offerDTO.getTypeOfLoan().getName_Type());
+
+        offer.setTypeOfLoan(typeOfLoan);
+
+        Bank bank = new Bank();
+        bank.setId(offerDTO.getBank().getId());
+        bank.setName(offerDTO.getBank().getName());
+
+        offer.setBank(bank);
+
         return offer;
     }
 }
