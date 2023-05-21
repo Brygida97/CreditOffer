@@ -1,5 +1,6 @@
 package pl.coderslab.creditofferfinal.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.coderslab.creditofferfinal.dto.BankDTO;
 import pl.coderslab.creditofferfinal.entity.Bank;
@@ -11,15 +12,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class BankService {
 
     private final BankRepository bankRepository;
     private final BankMapper bankMapper;
-
-    public BankService(BankRepository bankRepository, BankMapper bankMapper) {
-        this.bankRepository = bankRepository;
-        this.bankMapper = bankMapper;
-    }
 
     // pobranie listy wszystkich banków
     public List<BankDTO> getAllBanks() {

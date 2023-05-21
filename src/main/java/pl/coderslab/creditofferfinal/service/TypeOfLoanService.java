@@ -1,7 +1,7 @@
 package pl.coderslab.creditofferfinal.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.coderslab.creditofferfinal.controller.TypeOfLoanController;
 import pl.coderslab.creditofferfinal.dto.TypeOfLoanDTO;
 import pl.coderslab.creditofferfinal.entity.TypeOfLoan;
 import pl.coderslab.creditofferfinal.exception.TypeOfLoanNotFoundException;
@@ -12,16 +12,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class TypeOfLoanService {
 
     private final TypeOfLoanRepository typeOfLoanRepository;
 
     private final TypeOfLoanMapper typeOfLoanMapper;
-
-    public TypeOfLoanService(TypeOfLoanRepository typeOfLoanRepository, TypeOfLoanMapper typeOfLoanMapper) {
-        this.typeOfLoanRepository = typeOfLoanRepository;
-        this.typeOfLoanMapper = typeOfLoanMapper;
-    }
 
     // pobranie listy wszystkich typów kredytów
     public List<TypeOfLoanDTO> getAllTypeOfLoans(){
