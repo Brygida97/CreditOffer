@@ -1,0 +1,25 @@
+### pobranie listy wszystkich typów kredytów
+GET http://localhost:8080/types
+
+### pobranie typu kredytu za pomocą wskazania danego ID
+GET http://localhost:8080/types/4
+
+### dodanie nowego typu kredytu
+POST http://localhost:8080/types
+Content-Type: application/json
+
+{
+  "name_Type": "leasing"
+}
+
+### update danego typu kredytu za pośrednictwem wyboru danego ID
+PUT http://localhost:8080/types/4
+Content-Type: application/json
+
+{
+  "name_Type": "kredyt na samochód"
+}
+
+### usunięcie danego typu kredytu rozróżniając go po ID
+DELETE http://localhost:8080/types/4
+

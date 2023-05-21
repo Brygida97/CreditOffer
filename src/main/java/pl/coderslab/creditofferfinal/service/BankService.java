@@ -44,6 +44,7 @@ public class BankService {
         return bankMapper.toDto(createdBank);
     }
 
+    //update danego banku za pośrednictwem wyboru danego ID
     public BankDTO updateBank(Long id, BankDTO bankDTO) {
         Optional<Bank> optionalBank = bankRepository.findById(id);
         if (optionalBank.isPresent()) {
@@ -55,6 +56,7 @@ public class BankService {
         throw new BankNotFoundException("Bank o podanym ID nie istnieje");
     }
 
+    //usunięcie danego banku rozróżniając go po ID
     public BankDTO deleteBank(Long id) {
         Optional<Bank> optionalBank = bankRepository.findById(id);
         if (optionalBank.isPresent()) {

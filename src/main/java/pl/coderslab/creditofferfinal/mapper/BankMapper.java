@@ -30,5 +30,4 @@ public class BankMapper {
                 .map(this::toDto)
                 .collect(Collectors.toList());
     }
-
 }

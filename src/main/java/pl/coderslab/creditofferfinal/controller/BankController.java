@@ -1,6 +1,6 @@
 package pl.coderslab.creditofferfinal.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +13,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/banks")
+@AllArgsConstructor
 public class BankController {
 
     private BankService bankService;
-
-    public BankController(BankService bankService) {
-        this.bankService = bankService;
-    }
 
     // pobranie listy wszystkich banków
     @GetMapping
