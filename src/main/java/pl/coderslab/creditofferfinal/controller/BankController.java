@@ -1,8 +1,12 @@
 package pl.coderslab.creditofferfinal.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import pl.coderslab.creditofferfinal.dto.BankDTO;
+import pl.coderslab.creditofferfinal.exception.BankNotFoundException;
 import pl.coderslab.creditofferfinal.service.BankService;
 
 import java.util.List;
@@ -20,13 +24,18 @@ public class BankController {
     // pobranie listy wszystkich banków
     @GetMapping
     public List<BankDTO> getAllBanks() {
-        return bankService.getAllBanks();
+        List<BankDTO> banks = bankService.getAllBanks();
+        return banks;
     }
 
     // pobranie banku za pomocą wskazania danego ID
     @GetMapping("/{id}")
     public BankDTO getBankById(@PathVariable Long id) {
-        return bankService.getBankById(id);
+        try {
+            return bankService.getBankById(id);
+        }catch (BankNotFoundException ex){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
     }
 
     //dodanie nowego banku
@@ -38,12 +47,23 @@ public class BankController {
     //update danego banku za pośrednictwem wyboru danego ID
     @PutMapping("/{id}")
     public BankDTO updateBank(@PathVariable Long id, @RequestBody BankDTO bankDTO) {
-        return bankService.updateBank(id, bankDTO);
+        try {
+            return bankService.updateBank(id, bankDTO);
+        }catch (BankNotFoundException ex){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
     }
 
     //usunięcie danego banku rozróżniając go po ID
     @DeleteMapping("/{id}")
-    public void deleteBank(@PathVariable Long id) {
-        bankService.deleteBank(id);
+    public ResponseEntity<String> deleteBank(@PathVariable Long id) {
+        try {
+            bankService.deleteBank(id);
+            return ResponseEntity.ok(String.format("Bank o ID %s został usunięty",id));
+        }catch (BankNotFoundException ex){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
+
     }
+
 }

@@ -1,0 +1,24 @@
+### pobranie listy wszystkich banków
+GET http://localhost:8080/banks
+
+### pobranie banku za pomocą wskazania danego ID
+GET http://localhost:8080/banks/7
+
+### dodanie nowego banku
+POST http://localhost:8080/banks
+Content-Type: application/json
+
+{
+  "name": "mBank"
+}
+
+### update danego banku za pośrednictwem wyboru danego ID
+PUT http://localhost:8080/banks/7
+Content-Type: application/json
+
+{
+  "name": "Alior Bank"
+}
+
+### usunięcie danego banku rozróżniając go po ID
+DELETE http://localhost:8080/banks/6
