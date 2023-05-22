@@ -1,0 +1,54 @@
+### pobranie listy wszystkich ofert
+GET http://localhost:8080/api/offers
+
+### pobranie oferty za pomocą wskazania danego ID
+GET http://localhost:8080/api/offers/7
+
+### dodanie nowej oferty
+POST http://localhost:8080/api/offers
+Content-Type: application/json
+
+{
+  "name": "Pożyczka nowa",
+  "minimum_amount": 1000.00,
+  "maximum_amount": 250000.00,
+  "rrso": 12.00,
+  "commission_percent": 0.00,
+  "period_in_months": 120,
+  "url": "https://www.pekao.com.pl/klient-indywidualny/pozyczanie-gotowki/pozyczka-na-dowolny-cel.html",
+  "bank": {
+    "id": 3,
+    "name": "Bank Pekao"
+  },
+  "typeOfLoan": {
+    "id": 3,
+    "name_Type": "pożyczka gotówkowa"
+  }
+}
+
+### update danego banku za pośrednictwem wyboru danego ID
+PUT http://localhost:8080/api/offers/13
+Content-Type: application/json
+
+{
+  "ID": 13,
+  "name": "Pożyczka nowaAAAAAA",
+  "minimum_amount": 1000.00,
+  "maximum_amount": 250000.00,
+  "rrso": 12.00,
+  "commission_percent": 0.00,
+  "period_in_months": 120,
+  "url": "https://www.pekao.com.pl/klient-indywidualny/pozyczanie-gotowki/pozyczka-na-dowolny-cel.html",
+  "bank": {
+    "id": 3,
+    "name": "Bank Pekao"
+  },
+  "typeOfLoan": {
+    "id": 3,
+    "name_Type": "pożyczka gotówkowa"
+  }
+}
+
+### usunięcie danego banku rozróżniając go po ID
+DELETE http://localhost:8080/api/offers/12
+
