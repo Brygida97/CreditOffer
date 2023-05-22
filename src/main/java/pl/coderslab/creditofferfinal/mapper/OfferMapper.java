@@ -1,5 +1,6 @@
 package pl.coderslab.creditofferfinal.mapper;
 
+import org.springframework.stereotype.Component;
 import pl.coderslab.creditofferfinal.dto.BankDTO;
 import pl.coderslab.creditofferfinal.dto.OfferDTO;
 import pl.coderslab.creditofferfinal.dto.TypeOfLoanDTO;
@@ -7,10 +8,13 @@ import pl.coderslab.creditofferfinal.entity.Bank;
 import pl.coderslab.creditofferfinal.entity.Offer;
 import pl.coderslab.creditofferfinal.entity.TypeOfLoan;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
+@Component
 public class OfferMapper {
 
-    public static OfferDTO toDTO (Offer offer){
+    public OfferDTO toDto (Offer offer){
         OfferDTO offerDTO = new OfferDTO();
         offerDTO.setId(offer.getId());
         offerDTO.setName(offer.getName());
@@ -24,7 +28,6 @@ public class OfferMapper {
         TypeOfLoanDTO typeOfLoanDTO = new TypeOfLoanDTO();
         typeOfLoanDTO.setId(offer.getTypeOfLoan().getId());
         typeOfLoanDTO.setName_Type(offer.getTypeOfLoan().getName_Type());
-
         offerDTO.setTypeOfLoan(typeOfLoanDTO);
 
         BankDTO bankDTO = new BankDTO();
@@ -36,7 +39,7 @@ public class OfferMapper {
         return offerDTO;
     }
 
-    public static Offer toEntity(OfferDTO offerDTO){
+    public Offer toEntity(OfferDTO offerDTO){
         Offer offer = new Offer();
         offer.setId(offerDTO.getId());
         offer.setName(offerDTO.getName());
@@ -60,5 +63,11 @@ public class OfferMapper {
         offer.setBank(bank);
 
         return offer;
+    }
+
+    public List<OfferDTO> toDtoList(List<Offer> offers) {
+        return offers.stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
     }
 }

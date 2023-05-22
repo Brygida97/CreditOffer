@@ -1,7 +1,6 @@
 package pl.coderslab.creditofferfinal.dto;
 
 import lombok.*;
-import pl.coderslab.creditofferfinal.entity.TypeOfLoan;
 import java.math.BigDecimal;
 
 @Getter
