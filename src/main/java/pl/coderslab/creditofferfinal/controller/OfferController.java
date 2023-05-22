@@ -20,13 +20,13 @@ public class OfferController {
 
     // pobranie listy wszystkich ofert
     @GetMapping
-    public List<OfferDTO> getAllOferty() {
+    public List<OfferDTO> getAllOffer() {
         return offerService.getAllOferty();
     }
 
     // pobranie ofert za pomocą wskazania danego ID
     @GetMapping("/{id}")
-    public OfferDTO getOfertaById(@PathVariable Long id) {
+    public OfferDTO getOfferById(@PathVariable Long id) {
         try{
             return offerService.getOfferById(id);
         }catch (OfferNotFoundException ex){
