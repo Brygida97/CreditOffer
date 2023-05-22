@@ -10,7 +10,7 @@ import lombok.*;
 public class ClientDTO {
 
     private Long id;
-    private String imie;
-    private String nazwisko;
+    private String first_Name;
+    private String second_Name;
     private String email;
 }

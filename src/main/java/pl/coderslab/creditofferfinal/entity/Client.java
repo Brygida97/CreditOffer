@@ -21,10 +21,10 @@ public class Client {
     private Long id;
 
     @NotBlank
-    private String imie;
+    private String first_Name;
 
     @NotBlank
-    private String nazwisko;
+    private String second_Name;
 
     @NotBlank
     @Email

@@ -1,0 +1,29 @@
+### pobranie listy wszystkich klientów
+GET http://localhost:8080/client
+
+### pobranie klienta za pomocą wskazania danego ID
+GET http://localhost:8080/client/1
+
+### dodanie nowego klienta
+POST http://localhost:8080/client
+Content-Type: application/json
+
+{
+  "first_Name": "aaa2",
+  "second_Name": "bb1b",
+  "email": "aaa@aa1a"
+}
+
+### update danego klienta za pośrednictwem wyboru danego ID
+PUT http://localhost:8080/client/1
+Content-Type: application/json
+
+{
+  "first_Name": "aqqqaa2",
+  "second_Name": "bb1b",
+  "email": "aaa@aa1a"
+}
+
+### usunięcie danego klienta rozróżniając go po ID
+DELETE http://localhost:8080/client/2
+
