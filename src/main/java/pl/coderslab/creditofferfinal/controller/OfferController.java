@@ -36,13 +36,13 @@ public class OfferController {
 
     //dodanie nowej oferty
     @PostMapping
-    public OfferDTO createOferta(@RequestBody OfferDTO offerDTO) {
+    public OfferDTO createOffer(@RequestBody OfferDTO offerDTO) {
         return offerService.createOffer(offerDTO);
     }
 
     //update danej oferty za pośrednictwem wyboru danego ID
     @PutMapping("/{id}")
-    public OfferDTO updateBank(@PathVariable Long id, @RequestBody OfferDTO offerDTO) {
+    public OfferDTO updateOffer(@PathVariable Long id, @RequestBody OfferDTO offerDTO) {
         try {
             return offerService.updateOffer(id, offerDTO);
         }catch (OfferNotFoundException ex){
