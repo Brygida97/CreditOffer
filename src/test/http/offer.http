@@ -52,3 +52,14 @@ Content-Type: application/json
 ### usunięcie danego banku rozróżniając go po ID
 DELETE http://localhost:8080/api/offers/12
 
+### 3 oferty z najniższym RRSO
+GET http://localhost:8080/api/offers/lowest-rrso
+
+
+### 3 oferty z najniższą prowizją
+GET http://localhost:8080/api/offers/lowest-commission
+
+
+### oferty spełniające wymóg znajdowania się w 3 ofert z najniższym RRSO i najniższą prowizją
+GET http://localhost:8080/api/offers/matching-offers
+
