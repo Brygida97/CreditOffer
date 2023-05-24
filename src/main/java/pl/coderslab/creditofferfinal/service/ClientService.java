@@ -169,7 +169,7 @@ public class ClientService {
 
         List<Offer> matchingOffers = allOffers.stream()
                 .filter(offer -> (searchHistory.getAmount() == null || offer.getMaximumAmount().compareTo(searchHistory.getAmount()) > 0))
-                .filter(offer -> (searchHistory.getMaxRrso() == null || offerRepository.findByRRSOLessThan(searchHistory.getMaxRrso()).contains(offer)))
+                .filter(offer -> (searchHistory.getMaxRrso() == null || offer.getRRSO().compareTo(searchHistory.getMaxRrso()) <= 0))
                 .filter(offer -> (searchHistory.getMaxCommissionPercent() == null || offer.getCommissionPercent().compareTo(searchHistory.getMaxCommissionPercent()) <= 0))
                 .filter(offer -> (searchHistory.getMaxPeriodInMonths() == null || offer.getPeriodInMonths() >= searchHistory.getMaxPeriodInMonths()))
                 .collect(Collectors.toList());
@@ -187,7 +187,7 @@ public class ClientService {
 
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("creditofferfinal@gmail.com", "xxx");
+                return new PasswordAuthentication("creditofferfinal@gmail.com", "creditoffer");
             }
         });
 

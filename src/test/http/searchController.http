@@ -15,10 +15,10 @@ POST http://localhost:8080/api/offers/filter
 Content-Type: application/json
 
 {
-  "amount": 100000,
-  "maxRrso": 15,
+  "amount": 1000,
+  "maxRrso": 13,
   "maxCommissionPercent": 2,
-  "maxPeriodInMonths": 360,
+  "maxPeriodInMonths": 60,
   "client": {
     "id": 1
   }

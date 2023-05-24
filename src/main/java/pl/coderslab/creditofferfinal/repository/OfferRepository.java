@@ -15,6 +15,4 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
     List<Offer> findByCommissionPercentLessThan(BigDecimal commissionPercent);
     List<Offer> findByPeriodInMonthsGreaterThan(Long periodInMonths);
 
-    //    List<Offer> findByMinimumAmountIsLessThan(BigDecimal minimumAmount);
-
 }
