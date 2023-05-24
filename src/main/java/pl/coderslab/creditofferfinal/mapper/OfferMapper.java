@@ -18,11 +18,11 @@ public class OfferMapper {
         OfferDTO offerDTO = new OfferDTO();
         offerDTO.setId(offer.getId());
         offerDTO.setName(offer.getName());
-        offerDTO.setMinimum_amount(offer.getMinimum_amount());
-        offerDTO.setMaximum_amount(offer.getMaximum_amount());
-        offerDTO.setRrso(offer.getRrso());
-        offerDTO.setCommission_percent(offer.getCommission_percent());
-        offerDTO.setPeriod_in_months(offer.getPeriod_in_months());
+        offerDTO.setMinimumAmount(offer.getMinimumAmount());
+        offerDTO.setMaximumAmount(offer.getMaximumAmount());
+        offerDTO.setRRSO(offer.getRRSO());
+        offerDTO.setCommissionPercent(offer.getCommissionPercent());
+        offerDTO.setPeriodInMonths(offer.getPeriodInMonths());
         offerDTO.setUrl(offer.getUrl());
 
         TypeOfLoanDTO typeOfLoanDTO = new TypeOfLoanDTO();
@@ -43,11 +43,11 @@ public class OfferMapper {
         Offer offer = new Offer();
         offer.setId(offerDTO.getId());
         offer.setName(offerDTO.getName());
-        offer.setMinimum_amount(offerDTO.getMinimum_amount());
-        offer.setMaximum_amount(offerDTO.getMaximum_amount());
-        offer.setRrso(offerDTO.getRrso());
-        offer.setCommission_percent(offerDTO.getCommission_percent());
-        offer.setPeriod_in_months(offerDTO.getPeriod_in_months());
+        offer.setMinimumAmount(offerDTO.getMinimumAmount());
+        offer.setMaximumAmount(offerDTO.getMaximumAmount());
+        offer.setRRSO(offerDTO.getRRSO());
+        offer.setCommissionPercent(offerDTO.getCommissionPercent());
+        offer.setPeriodInMonths(offerDTO.getPeriodInMonths());
         offer.setUrl(offerDTO.getUrl());
 
         TypeOfLoan typeOfLoan = new TypeOfLoan();

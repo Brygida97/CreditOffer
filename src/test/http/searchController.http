@@ -1,0 +1,25 @@
+### "logowanie" klienta - podanie jego danych
+
+POST http://localhost:8080/client
+Content-Type: application/json
+
+{
+  "first_Name": "aaa2",
+  "second_Name": "bb1b",
+  "email": "aaa@aa1a"
+}
+
+### filtr ofert
+
+POST http://localhost:8080/api/offers/filter
+Content-Type: application/json
+
+{
+  "amount": 100000,
+  "maxRrso": 15,
+  "maxCommissionPercent": 2,
+  "maxPeriodInMonths": 360,
+  "client": {
+    "id": 1
+  }
+}

@@ -5,12 +5,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.creditofferfinal.entity.Client;
+import pl.coderslab.creditofferfinal.entity.Offer;
+import pl.coderslab.creditofferfinal.entity.SearchHistory;
 
 import java.util.List;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client, Long> {
-    @Query("SELECT c FROM Client c LEFT JOIN c.searchHistory sh WHERE sh.id IS NOT NULL AND c.email = :criteria")
-    List<Client> findClientsWithSearches(@Param("criteria") String criteria);
-
+public interface SearchHistoryRepository extends JpaRepository<SearchHistory, Long> {
+    List<SearchHistory> findByClientAndMatchingOffer(Client client, Offer offer);
 }

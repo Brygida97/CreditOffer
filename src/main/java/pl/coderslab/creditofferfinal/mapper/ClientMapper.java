@@ -5,6 +5,7 @@ import pl.coderslab.creditofferfinal.dto.ClientDTO;
 import pl.coderslab.creditofferfinal.dto.OfferDTO;
 import pl.coderslab.creditofferfinal.entity.Client;
 import pl.coderslab.creditofferfinal.entity.Offer;
+import pl.coderslab.creditofferfinal.entity.SearchHistory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,4 +35,5 @@ public class ClientMapper {
                 .map(this::toDto)
                 .collect(Collectors.toList());
     }
+
 }

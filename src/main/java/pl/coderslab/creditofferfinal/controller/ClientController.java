@@ -62,7 +62,6 @@ public class ClientController {
         }catch (BankNotFoundException ex){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
-
     }
 
 }

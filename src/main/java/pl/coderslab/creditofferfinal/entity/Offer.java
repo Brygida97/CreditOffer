@@ -24,19 +24,19 @@ public class Offer {
     private String name;
 
     @Column(name = "minimum_amount")
-    private BigDecimal minimum_amount;
+    private BigDecimal minimumAmount;
 
     @Column(name = "maximum_amount")
-    private BigDecimal maximum_amount;
+    private BigDecimal maximumAmount;
 
     @Column(name = "rrso")
-    private BigDecimal rrso;
+    private BigDecimal RRSO;
 
     @Column(name = "commission_percent")
-    private BigDecimal commission_percent;
+    private BigDecimal commissionPercent;
 
     @Column(name = "period_in_months")
-    private Integer period_in_months;
+    private Long periodInMonths;
 
     @Column(name = "url")
     private String url;

@@ -11,11 +11,11 @@ import java.math.BigDecimal;
 public class OfferDTO {
     private Long id;
     private String name;
-    private BigDecimal minimum_amount;
-    private BigDecimal maximum_amount;
-    private BigDecimal rrso;
-    private BigDecimal commission_percent;
-    private Integer period_in_months;
+    private BigDecimal minimumAmount;
+    private BigDecimal maximumAmount;
+    private BigDecimal RRSO;
+    private BigDecimal commissionPercent;
+    private Long periodInMonths;
     private String url;
     private BankDTO bank;
     private TypeOfLoanDTO typeOfLoan;

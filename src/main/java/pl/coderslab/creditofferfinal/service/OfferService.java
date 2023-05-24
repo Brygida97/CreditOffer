@@ -2,12 +2,16 @@ package pl.coderslab.creditofferfinal.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.coderslab.creditofferfinal.dto.BankDTO;
 import pl.coderslab.creditofferfinal.dto.OfferDTO;
+import pl.coderslab.creditofferfinal.dto.TypeOfLoanDTO;
 import pl.coderslab.creditofferfinal.entity.Offer;
 import pl.coderslab.creditofferfinal.exception.OfferNotFoundException;
 import pl.coderslab.creditofferfinal.mapper.OfferMapper;
 import pl.coderslab.creditofferfinal.repository.OfferRepository;
 
+import java.math.BigDecimal;
+import java.util.BitSet;
 import java.util.List;
 import java.util.Optional;
 
