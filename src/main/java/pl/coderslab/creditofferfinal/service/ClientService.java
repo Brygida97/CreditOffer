@@ -93,23 +93,18 @@ public class ClientService {
             List<Offer> matchingOffersByMaxAmount = offerRepository.findByMaximumAmountGreaterThan(maxAmount);
             matchingOffers.retainAll(matchingOffersByMaxAmount);
         }
-
         if (maxCommissionPercent != null) {
             List<Offer> matchingOffersByCommissionPercent = offerRepository.findByCommissionPercentLessThan(maxCommissionPercent);
             matchingOffers.retainAll(matchingOffersByCommissionPercent);
         }
-
         if (maxPeriodInMonths != null) {
             List<Offer> matchingOffersByPeriodInMonths = offerRepository.findByPeriodInMonthsGreaterThan(maxPeriodInMonths);
             matchingOffers.retainAll(matchingOffersByPeriodInMonths);
         }
-
         if (maxRrso != null) {
             List<Offer> matchingOffersByRrso = offerRepository.findByRRSOLessThan(maxRrso);
             matchingOffers.retainAll(matchingOffersByRrso);
         }
-
-
         if (matchingOffers.isEmpty()) {
             SearchHistory searchHistory = new SearchHistory();
             searchHistory.setAmount(maxAmount);

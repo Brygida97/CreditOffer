@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class testIsOfferMatchingFilters {
+
     private ClientService clientService;
     private ClientRepository clientRepository;
     private ClientMapper clientMapper;
@@ -34,17 +35,17 @@ public class testIsOfferMatchingFilters {
     public void testIsOfferMatchingFilters() {
         // Tworzenie przykładowej oferty
         Offer offer = new Offer();
-        offer.setMaximumAmount(new BigDecimal("250000"));
-        offer.setRRSO(new BigDecimal("12"));
-        offer.setCommissionPercent(new BigDecimal("2"));
-        offer.setPeriodInMonths(120L);
+        offer.setMaximumAmount(new BigDecimal("1000000"));
+        offer.setRRSO(new BigDecimal("10.89"));
+        offer.setCommissionPercent(new BigDecimal("5"));
+        offer.setPeriodInMonths(360L);
 
         // Tworzenie przykładowego obiektu SearchHistory z filtrami
         SearchHistory searchHistory = new SearchHistory();
-        searchHistory.setAmount(new BigDecimal("100000"));
-        searchHistory.setMaxRrso(new BigDecimal("15"));
-        searchHistory.setMaxCommissionPercent(new BigDecimal("2"));
-        searchHistory.setMaxPeriodInMonths(100L);
+        searchHistory.setAmount(new BigDecimal("10000"));
+        searchHistory.setMaxRrso(new BigDecimal("13"));
+        searchHistory.setMaxCommissionPercent(new BigDecimal("6"));
+        searchHistory.setMaxPeriodInMonths(360L);
 
         // Sprawdzanie, czy oferta pasuje do filtrów
         boolean isMatching = clientService.isOfferMatchingFilters(offer, searchHistory);
