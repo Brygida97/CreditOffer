@@ -187,7 +187,7 @@ public class ClientService {
 
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("creditofferfinal@gmail.com", "creditoffer");
+                return new PasswordAuthentication("creditofferfinal@gmail.com", "xxx");
             }
         });
 
