@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
-    @Query("SELECT c FROM Client c LEFT JOIN c.searchHistory sh WHERE sh.id IS NOT NULL AND c.email = :criteria")
-    List<Client> findClientsWithSearches(@Param("criteria") String criteria);
+//    @Query("SELECT c FROM Client c LEFT JOIN c.searchHistory sh WHERE sh.id IS NOT NULL AND c.email = :criteria")
+//    List<Client> findClientsWithSearches(@Param("criteria") String criteria);
 
 }

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Component
 public class OfferMapper {
 
-    public OfferDTO toDto (Offer offer){
+    public OfferDTO toDto(Offer offer) {
         OfferDTO offerDTO = new OfferDTO();
         offerDTO.setId(offer.getId());
         offerDTO.setName(offer.getName());
@@ -39,7 +39,7 @@ public class OfferMapper {
         return offerDTO;
     }
 
-    public Offer toEntity(OfferDTO offerDTO){
+    public Offer toEntity(OfferDTO offerDTO) {
         Offer offer = new Offer();
         offer.setId(offerDTO.getId());
         offer.setName(offerDTO.getName());

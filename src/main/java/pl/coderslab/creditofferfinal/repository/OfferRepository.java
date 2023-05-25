@@ -11,8 +11,11 @@ import java.util.List;
 public interface OfferRepository extends JpaRepository<Offer, Long> {
 
     List<Offer> findByMaximumAmountGreaterThan(BigDecimal maximumAmount);
+
     List<Offer> findByRRSOLessThan(BigDecimal rrso);
+
     List<Offer> findByCommissionPercentLessThan(BigDecimal commissionPercent);
+
     List<Offer> findByPeriodInMonthsGreaterThan(Integer periodInMonths);
 
     Long countByBankId(Long bankId);

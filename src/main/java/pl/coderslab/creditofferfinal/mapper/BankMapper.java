@@ -24,7 +24,6 @@ public class BankMapper {
         return bank;
     }
 
-
     public List<BankDTO> toDtoList(List<Bank> banks) {
         return banks.stream()
                 .map(this::toDto)

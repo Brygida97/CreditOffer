@@ -10,7 +10,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "client")
-@Getter @Setter @ToString
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

@@ -20,46 +20,42 @@ import java.util.List;
 public class ClientController {
     private ClientService clientService;
 
-    // pobranie listy wszystkich klientów
     @GetMapping
     public List<ClientDTO> getAllClients() {
         List<ClientDTO> clients = clientService.getAllClient();
         return clients;
     }
 
-    // pobranie klienta za pomocą wskazania danego ID
     @GetMapping("/{id}")
     public ClientDTO getClientById(@PathVariable Long id) {
         try {
             return clientService.getClientById(id);
-        }catch (OfferNotFoundException ex){
+        } catch (OfferNotFoundException ex) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
     }
 
-    //dodanie nowego klienta
     @PostMapping
     public ClientDTO createClient(@RequestBody ClientDTO clientDTO) {
         return clientService.createClient(clientDTO);
     }
 
-    //update danego klienta za pośrednictwem wyboru danego ID
+
     @PutMapping("/{id}")
     public ClientDTO updateClient(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
         try {
             return clientService.updateClient(id, clientDTO);
-        }catch (ClientNotFoundException ex){
+        } catch (ClientNotFoundException ex) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
     }
 
-    //usunięcie danego klienta rozróżniając go po ID
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteClient(@PathVariable Long id) {
         try {
             clientService.deleteClient(id);
-            return ResponseEntity.ok(String.format("Klient o ID %s został usunięty",id));
-        }catch (BankNotFoundException ex){
+            return ResponseEntity.ok(String.format("Klient o ID %s został usunięty", id));
+        } catch (BankNotFoundException ex) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
     }

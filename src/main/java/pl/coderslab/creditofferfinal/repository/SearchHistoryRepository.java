@@ -12,5 +12,4 @@ import java.util.List;
 
 @Repository
 public interface SearchHistoryRepository extends JpaRepository<SearchHistory, Long> {
-    List<SearchHistory> findByClientAndMatchingOffer(Client client, Offer offer);
 }

@@ -43,4 +43,9 @@ public class SearchHistoryMapper {
                 .collect(Collectors.toList());
     }
 
+    public List<SearchHistoryDTO> toDtoList(List<SearchHistory> searchHistory) {
+        return searchHistory.stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
+    }
 }

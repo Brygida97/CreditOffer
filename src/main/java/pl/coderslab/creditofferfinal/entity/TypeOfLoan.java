@@ -3,6 +3,7 @@ package pl.coderslab.creditofferfinal.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "type")
@@ -17,6 +18,7 @@ public class TypeOfLoan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "name_Type")
     private String name_Type;
 

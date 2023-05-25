@@ -3,6 +3,7 @@ package pl.coderslab.creditofferfinal.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "banks")
@@ -19,5 +20,6 @@ public class Bank {
     private Long id;
 
     @Column(name = "name", nullable = false)
+    @NotBlank
     private String name;
 }

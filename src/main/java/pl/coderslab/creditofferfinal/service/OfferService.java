@@ -19,13 +19,11 @@ public class OfferService {
     private final OfferRepository offerRepository;
     private final OfferMapper offerMapper;
 
-    // pobranie listy wszystkich ofert
     public List<OfferDTO> getAllOferty() {
         List<Offer> offers = offerRepository.findAll();
         return offerMapper.toDtoList(offers);
     }
 
-    // pobranie oferty za pomocą wskazania danego ID
     public OfferDTO getOfferById(Long id) {
         Optional<Offer> optionalOffer = offerRepository.findById(id);
         if (optionalOffer.isPresent()){

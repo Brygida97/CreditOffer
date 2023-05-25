@@ -11,6 +11,6 @@ import javax.persistence.Column;
 @AllArgsConstructor
 @Builder
 public class TypeOfLoanDTO {
-        private Long id;
-        private String name_Type;
+    private Long id;
+    private String name_Type;
 }

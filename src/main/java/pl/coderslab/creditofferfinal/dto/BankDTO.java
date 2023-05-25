@@ -2,7 +2,9 @@ package pl.coderslab.creditofferfinal.dto;
 
 import lombok.*;
 
-@Getter @Setter @ToString
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class BankDTO {
