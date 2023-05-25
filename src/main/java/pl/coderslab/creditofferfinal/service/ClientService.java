@@ -36,13 +36,11 @@ public class ClientService {
     private final OfferRepository offerRepository;
     private final SearchHistoryRepository searchHistoryRepository;
 
-    // pobranie listy wszystkich klientów
     public List<ClientDTO> getAllClient() {
         List<Client> clients = clientRepository.findAll();
         return clientMapper.toDtoList(clients);
     }
 
-    // pobranie klienta za pomocą wskazania danego ID
     public ClientDTO getClientById(Long id) {
         Optional<Client> optionalClient = clientRepository.findById(id);
         if (optionalClient.isPresent()) {
@@ -52,14 +50,12 @@ public class ClientService {
         throw new ClientNotFoundException("Klient o podanym ID nie istnieje");
     }
 
-    //dodanie nowego klienta
     public ClientDTO createClient(ClientDTO clientDTO) {
         Client client = clientMapper.toEntity(clientDTO);
         Client createdClient = clientRepository.save(client);
         return clientMapper.toDto(createdClient);
     }
 
-    //update danego klienta za pośrednictwem wyboru danego ID
     public ClientDTO updateClient(Long id, ClientDTO clientDTO) {
         Optional<Client> optionalClient = clientRepository.findById(id);
         if (optionalClient.isPresent()) {
@@ -73,7 +69,6 @@ public class ClientService {
         throw new ClientNotFoundException("Klient o podanym ID nie istnieje");
     }
 
-    //usunięcie danego klienta rozróżniając go po ID
     public ClientDTO deleteClient(Long id) {
         Optional<Client> optionalClient = clientRepository.findById(id);
         if (optionalClient.isPresent()) {
@@ -83,8 +78,6 @@ public class ClientService {
         }
         throw new BankNotFoundException("Klient o podanym ID nie istnieje");
     }
-
-    // nowe endpointy
 
     public void filterAndSaveSearch(ClientDTO clientDTO, BigDecimal maxAmount, BigDecimal maxRrso, BigDecimal maxCommissionPercent, Integer maxPeriodInMonths) {
         List<Offer> matchingOffers = offerRepository.findAll();
@@ -116,15 +109,6 @@ public class ClientService {
         }
     }
 
-    public void sendEmailIfMatchingOfferFound(ClientDTO clientDTO) {
-        List<SearchHistory> searchHistories = searchHistoryRepository.findAll();
-
-        for (SearchHistory searchHistory : searchHistories) {
-            if (isMatchingOffer(searchHistory)) {
-                sendEmail(searchHistory.getClient().getEmail(), searchHistory, clientDTO);
-            }
-        }
-    }
 
     private boolean isMatchingOffer(SearchHistory searchHistory) {
         List<Offer> allOffers = offerRepository.findAll();
@@ -172,52 +156,4 @@ public class ClientService {
         return matchingOffers;
     }
 
-
-    public void sendEmail(String emailAddress, SearchHistory searchHistory, ClientDTO clientDTO) {
-        Properties properties = new Properties();
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-
-        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
-            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("creditofferfinal@gmail.com", "creditoffer");
-            }
-        });
-
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("your_email@example.com"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(clientDTO.getEmail()));
-            message.setSubject("Nowa oferta spełniająca warunki");
-
-            List<Offer> matchingOffers = matchingOffers(searchHistory);
-
-            StringBuilder emailContentBuilder = new StringBuilder();
-            emailContentBuilder.append("Drogi Kliencie,\n\nMamy dla Ciebie dobre wiadomości! Znaleźliśmy oferty, które spełniają Twoje warunki wyszukiwania:\n\n");
-
-            for (Offer matchingOffer : matchingOffers) {
-                emailContentBuilder.append("Oferta: ").append(matchingOffer.getName()).append("\n");
-                emailContentBuilder.append("Kwota: ").append(matchingOffer.getMinimumAmount()).append(" - ").append(matchingOffer.getMaximumAmount()).append("\n");
-                emailContentBuilder.append("RRSO: ").append(matchingOffer.getRRSO()).append("\n");
-                emailContentBuilder.append("Prowizja: ").append(matchingOffer.getCommissionPercent()).append("\n");
-                emailContentBuilder.append("Okres: ").append(matchingOffer.getPeriodInMonths()).append(" miesiące/miesięcy\n");
-                emailContentBuilder.append("URL: ").append(matchingOffer.getUrl()).append("\n");
-                emailContentBuilder.append("Bank: ").append(matchingOffer.getBank().getName()).append("\n");
-                emailContentBuilder.append("Typ pożyczki: ").append(matchingOffer.getTypeOfLoan().getName_Type().concat("\n\n"));
-            }
-
-            emailContentBuilder.append("Zapraszamy do skorzystania z naszych ofert.\n\n");
-            emailContentBuilder.append("Pozdrawiamy,\nTwoja wyszukiwarka ofert kredytowych");
-
-            String emailContent = emailContentBuilder.toString();
-
-            Transport.send(message);
-
-            System.out.println("Email sent successfully.");
-        } catch (MessagingException e) {
-            System.out.println("Failed to send email. Error message: " + e.getMessage());
-        }
-    }
 }

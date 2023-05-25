@@ -31,18 +31,6 @@ public class SearchHistoryMapper {
         return searchHistory;
     }
 
-    public List<SearchHistoryDTO> mapSearchHistoryList(List<SearchHistory> searchHistoryList) {
-        return searchHistoryList.stream()
-                .map(this::toDto)
-                .collect(Collectors.toList());
-    }
-
-    public List<SearchHistory> mapSearchHistoryDTOList(List<SearchHistoryDTO> searchHistoryDTOList) {
-        return searchHistoryDTOList.stream()
-                .map(this::toEntity)
-                .collect(Collectors.toList());
-    }
-
     public List<SearchHistoryDTO> toDtoList(List<SearchHistory> searchHistory) {
         return searchHistory.stream()
                 .map(this::toDto)
