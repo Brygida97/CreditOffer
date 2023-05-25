@@ -33,14 +33,12 @@ public class OfferService {
         throw new OfferNotFoundException("Oferta o podanym ID nie istnieje");
     }
 
-    //dodanie nowej oferty
     public OfferDTO createOffer(OfferDTO offerDTO) {
         Offer offer = offerMapper.toEntity(offerDTO);
         Offer createdOffer = offerRepository.save(offer);
         return offerMapper.toDto(createdOffer);
     }
 
-    //update danej oferty za pośrednictwem wyboru danego ID
     public OfferDTO updateOffer(Long id, OfferDTO offerDTO) {
         Optional<Offer> optionalOffer = offerRepository.findById(id);
         if (optionalOffer.isPresent()) {
@@ -52,7 +50,6 @@ public class OfferService {
         throw new OfferNotFoundException("Oferta o podanym ID nie istnieje");
     }
 
-    //usunięcie danej oferty rozróżniając go po ID
     public OfferDTO deleteOffer(Long id) {
         Optional<Offer> optionalOffer = offerRepository.findById(id);
         if (optionalOffer.isPresent()) {
