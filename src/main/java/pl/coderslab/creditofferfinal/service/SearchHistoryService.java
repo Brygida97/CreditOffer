@@ -109,4 +109,6 @@ public class SearchHistoryService {
         return matchingOffers;
     }
 
+
+
 }

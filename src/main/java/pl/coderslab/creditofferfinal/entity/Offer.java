@@ -4,6 +4,8 @@ import lombok.*;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
@@ -26,23 +28,23 @@ public class Offer {
     @Column(name = "name")
     private String name;
 
-    @NotBlank
+    @DecimalMin(value = "0")
     @Column(name = "minimum_amount")
     private BigDecimal minimumAmount;
 
-    @NotBlank
+    @DecimalMin(value = "0")
     @Column(name = "maximum_amount")
     private BigDecimal maximumAmount;
 
-    @NotBlank
+    @DecimalMin(value = "0")
     @Column(name = "rrso")
     private BigDecimal RRSO;
 
-    @NotBlank
+    @DecimalMin(value = "0")
     @Column(name = "commission_percent")
     private BigDecimal commissionPercent;
 
-    @NotBlank
+    @Min(value = 0)
     @Column(name = "period_in_months")
     private Integer periodInMonths;
 
@@ -51,12 +53,10 @@ public class Offer {
     @Column(name = "url")
     private String url;
 
-    @NotBlank
     @ManyToOne
     @JoinColumn(name = "bank_id", nullable = false)
     private Bank bank;
 
-    @NotBlank
     @ManyToOne
     @JoinColumn(name = "type_id", nullable = false)
     private TypeOfLoan typeOfLoan;

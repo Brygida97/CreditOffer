@@ -10,11 +10,11 @@ Content-Type: application/json
 
 {
   "name": "Pożyczka nowa",
-  "minimum_amount": 1000.00,
-  "maximum_amount": 250000.00,
+  "minimumAmount": 1000.00,
+  "maximumAmount": 250000.00,
   "rrso": 12.00,
-  "commission_percent": 0.00,
-  "period_in_months": 120,
+  "commissionPercent": 4.00,
+  "periodInMonths": 120,
   "url": "https://www.pekao.com.pl/klient-indywidualny/pozyczanie-gotowki/pozyczka-na-dowolny-cel.html",
   "bank": {
     "id": 3,
@@ -31,13 +31,12 @@ PUT http://localhost:8080/api/offers/13
 Content-Type: application/json
 
 {
-  "ID": 13,
-  "name": "Pożyczka nowaAAAAAA",
-  "minimum_amount": 1000.00,
-  "maximum_amount": 250000.00,
+  "name": "Pożyczka nowa",
+  "minimumAmount": 1000.00,
+  "maximumAmount": 250000.00,
   "rrso": 12.00,
-  "commission_percent": 0.00,
-  "period_in_months": 120,
+  "commissionPercent": 4.00,
+  "periodInMonths": 120,
   "url": "https://www.pekao.com.pl/klient-indywidualny/pozyczanie-gotowki/pozyczka-na-dowolny-cel.html",
   "bank": {
     "id": 3,

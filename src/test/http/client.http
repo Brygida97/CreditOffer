@@ -9,9 +9,9 @@ POST http://localhost:8080/client
 Content-Type: application/json
 
 {
-  "first_Name": "aaa2",
-  "second_Name": "bb1b",
-  "email": "aaa@aa1a"
+  "first_Name": "Test2",
+  "second_Name": "Test2",
+  "email": "krzywdziakbrygida97@gmail.com"
 }
 
 ### update danego klienta za pośrednictwem wyboru danego ID
