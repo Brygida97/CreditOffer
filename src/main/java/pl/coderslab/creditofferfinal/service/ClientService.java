@@ -86,7 +86,7 @@ public class ClientService {
 
     // nowe endpointy
 
-    public void filterAndSaveSearch(ClientDTO clientDTO, BigDecimal maxAmount, BigDecimal maxRrso, BigDecimal maxCommissionPercent, Long maxPeriodInMonths) {
+    public void filterAndSaveSearch(ClientDTO clientDTO, BigDecimal maxAmount, BigDecimal maxRrso, BigDecimal maxCommissionPercent, Integer maxPeriodInMonths) {
         List<Offer> matchingOffers = offerRepository.findAll();
 
         if (maxAmount != null) {
@@ -141,7 +141,7 @@ public class ClientService {
         BigDecimal maxAmount = searchHistory.getAmount();
         BigDecimal maxRrso = searchHistory.getMaxRrso();
         BigDecimal maxCommissionPercent = searchHistory.getMaxCommissionPercent();
-        Long maxPeriodInMonths = searchHistory.getMaxPeriodInMonths();
+        Integer maxPeriodInMonths = searchHistory.getMaxPeriodInMonths();
 
         if (maxAmount != null && offer.getMaximumAmount().compareTo(maxAmount) > 0) {
             return false;

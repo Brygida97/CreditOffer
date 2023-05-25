@@ -86,6 +86,4 @@ public class OfferController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
     }
-
-    
 }

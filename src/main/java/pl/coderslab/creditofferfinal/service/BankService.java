@@ -7,9 +7,13 @@ import pl.coderslab.creditofferfinal.entity.Bank;
 import pl.coderslab.creditofferfinal.exception.BankNotFoundException;
 import pl.coderslab.creditofferfinal.mapper.BankMapper;
 import pl.coderslab.creditofferfinal.repository.BankRepository;
+import pl.coderslab.creditofferfinal.repository.OfferRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -17,6 +21,8 @@ public class BankService {
 
     private final BankRepository bankRepository;
     private final BankMapper bankMapper;
+
+    private final OfferRepository offerRepository;
 
     // pobranie listy wszystkich banków
     public List<BankDTO> getAllBanks() {
@@ -62,5 +68,18 @@ public class BankService {
             return bankMapper.toDto(bank);
         }
         throw new BankNotFoundException("Bank o podanym ID nie istnieje");
+    }
+
+    //nowy endpoint
+    public List<Map<String, Object>> getBankOfferCounts() {
+        return bankRepository.findAll().stream()
+                .map(bank -> {
+                    Map<String, Object> result = new HashMap<>();
+                    result.put("bankId", bank.getId());
+                    result.put("bankName", bank.getName());
+                    result.put("offerCount", offerRepository.countByBankId((long) Math.toIntExact(bank.getId())));
+                    return result;
+                })
+                .collect(Collectors.toList());
     }
 }

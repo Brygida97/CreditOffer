@@ -15,7 +15,7 @@ public class OfferDTO {
     private BigDecimal maximumAmount;
     private BigDecimal RRSO;
     private BigDecimal commissionPercent;
-    private Long periodInMonths;
+    private Integer periodInMonths;
     private String url;
     private BankDTO bank;
     private TypeOfLoanDTO typeOfLoan;

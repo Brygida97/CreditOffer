@@ -10,6 +10,7 @@ import pl.coderslab.creditofferfinal.exception.BankNotFoundException;
 import pl.coderslab.creditofferfinal.service.BankService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/banks")
@@ -63,6 +64,11 @@ public class BankController {
 
     }
 
+    @GetMapping("/offers/count")
+    public ResponseEntity<List<Map<String, Object>>> getBankOfferCounts() {
+        List<Map<String, Object>> bankOfferCounts = bankService.getBankOfferCounts();
+        return ResponseEntity.ok(bankOfferCounts);
+    }
 
 
 }

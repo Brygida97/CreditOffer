@@ -36,7 +36,7 @@ public class Offer {
     private BigDecimal commissionPercent;
 
     @Column(name = "period_in_months")
-    private Long periodInMonths;
+    private Integer periodInMonths;
 
     @Column(name = "url")
     private String url;

@@ -23,3 +23,5 @@ Content-Type: application/json
 ### usunięcie danego banku rozróżniając go po ID
 DELETE http://localhost:8080/banks/6
 
+### wyliczenie ofert dla danego banku
+GET http://localhost:8080/banks/offers/count

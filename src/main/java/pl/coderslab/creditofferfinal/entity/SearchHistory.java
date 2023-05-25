@@ -29,7 +29,7 @@ public class SearchHistory {
     private BigDecimal maxCommissionPercent;
 
     @Column(name = "max_period_in_months")
-    private Long maxPeriodInMonths;
+    private Integer maxPeriodInMonths;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)

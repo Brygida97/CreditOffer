@@ -29,7 +29,7 @@ public class SearchController {
         BigDecimal maxAmount = searchHistory.getAmount();
         BigDecimal maxRrso = searchHistory.getMaxRrso();
         BigDecimal maxCommissionPercent = searchHistory.getMaxCommissionPercent();
-        Long maxPeriodInMonths = searchHistory.getMaxPeriodInMonths();
+        Integer maxPeriodInMonths = searchHistory.getMaxPeriodInMonths();
 
         Client client = searchHistory.getClient();
         ClientDTO clientDTO = clientMapper.toDto(client);

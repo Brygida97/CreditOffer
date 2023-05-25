@@ -13,6 +13,7 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
     List<Offer> findByMaximumAmountGreaterThan(BigDecimal maximumAmount);
     List<Offer> findByRRSOLessThan(BigDecimal rrso);
     List<Offer> findByCommissionPercentLessThan(BigDecimal commissionPercent);
-    List<Offer> findByPeriodInMonthsGreaterThan(Long periodInMonths);
+    List<Offer> findByPeriodInMonthsGreaterThan(Integer periodInMonths);
 
+    Long countByBankId(Long bankId);
 }

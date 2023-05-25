@@ -17,7 +17,7 @@ public class SearchHistoryDTO {
     private BigDecimal amount;
     private BigDecimal maxRrso;
     private BigDecimal maxCommissionPercent;
-    private Long maxPeriodInMonths;
+    private Integer maxPeriodInMonths;
     private Client client;
     private Offer matchingOffer;
 }
