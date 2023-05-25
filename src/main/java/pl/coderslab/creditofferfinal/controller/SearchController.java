@@ -76,9 +76,9 @@ public class SearchController {
 
         Client client = searchHistory.getClient();
         ClientDTO clientDTO = clientMapper.toDto(client);
-        clientService.filterAndSaveSearch(clientDTO, maxAmount, maxRrso, maxCommissionPercent, maxPeriodInMonths);
+        searchHistoryService.filterAndSaveSearch(clientDTO, maxAmount, maxRrso, maxCommissionPercent, maxPeriodInMonths);
 
-        List<Offer> matchingOffers = clientService.matchingOffers(searchHistory);
+        List<Offer> matchingOffers = searchHistoryService.matchingOffers(searchHistory);
 
         if (matchingOffers.isEmpty()) {
             return ResponseEntity.noContent().build();
