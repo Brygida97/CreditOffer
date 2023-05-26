@@ -100,15 +100,12 @@ public class SearchHistoryService {
         List<Offer> allOffers = offerRepository.findAll();
 
         List<Offer> matchingOffers = allOffers.stream()
-                .filter(offer -> (searchHistory.getAmount() == null || offer.getMaximumAmount().compareTo(searchHistory.getAmount()) > 0))
-                .filter(offer -> (searchHistory.getMaxRrso() == null || offer.getRRSO().compareTo(searchHistory.getMaxRrso()) <= 0))
-                .filter(offer -> (searchHistory.getMaxCommissionPercent() == null || offer.getCommissionPercent().compareTo(searchHistory.getMaxCommissionPercent()) <= 0))
-                .filter(offer -> (searchHistory.getMaxPeriodInMonths() == null || offer.getPeriodInMonths() >= searchHistory.getMaxPeriodInMonths()))
+                .filter(offer -> searchHistory.getAmount() == null || offer.getMaximumAmount().compareTo(searchHistory.getAmount()) >= 0)
+                .filter(offer -> searchHistory.getMaxRrso() == null || offer.getRRSO().compareTo(searchHistory.getMaxRrso()) <= 0)
+                .filter(offer -> searchHistory.getMaxCommissionPercent() == null || offer.getCommissionPercent().compareTo(searchHistory.getMaxCommissionPercent()) <= 0)
+                .filter(offer -> searchHistory.getMaxPeriodInMonths() == null || offer.getPeriodInMonths() >= searchHistory.getMaxPeriodInMonths())
                 .collect(Collectors.toList());
 
         return matchingOffers;
     }
-
-
-
 }

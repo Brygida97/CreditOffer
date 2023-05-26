@@ -4,9 +4,9 @@ POST http://localhost:8080/client
 Content-Type: application/json
 
 {
-  "first_Name": "aaa2",
-  "second_Name": "bb1b",
-  "email": "aaa@aa1a"
+  "first_Name": "Test2",
+  "second_Name": "Test2",
+  "email": "CreditOffer1@outlook.com"
 }
 
 ### filtr ofert
@@ -15,7 +15,7 @@ POST http://localhost:8080/api/searchHistory/offers/filter
 Content-Type: application/json
 
 {
-  "amount": 10000,
+  "amount": 10000000,
   "maxRrso": 13,
   "maxCommissionPercent": 6,
   "maxPeriodInMonths": 360,

@@ -76,18 +76,18 @@ public class SearchController {
 
         Client client = searchHistory.getClient();
         ClientDTO clientDTO = clientMapper.toDto(client);
-        searchHistoryService.filterAndSaveSearch(clientDTO, maxAmount, maxRrso, maxCommissionPercent, maxPeriodInMonths);
 
         List<Offer> matchingOffers = searchHistoryService.matchingOffers(searchHistory);
 
         if (matchingOffers.isEmpty()) {
-            return ResponseEntity.noContent().build();
+            searchHistoryService.filterAndSaveSearch(clientDTO, maxAmount, maxRrso, maxCommissionPercent, maxPeriodInMonths);
+            String errorMessage = "Niestety nie odnajdujemy oferty spełniającej Twoich oczekiwań. W przypadku dodania takiej oferty skontaktujemy się z Tobą mailowo.";
+            return ResponseEntity.ok(errorMessage);
         } else {
             return ResponseEntity.ok(matchingOffers);
         }
     }
-
-
 }
+
 
 
