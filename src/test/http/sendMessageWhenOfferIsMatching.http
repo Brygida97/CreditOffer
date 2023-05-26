@@ -1,0 +1,47 @@
+### "logowanie" klienta - podanie jego danych
+
+POST http://localhost:8080/client
+Content-Type: application/json
+
+{
+  "first_Name": "Test",
+  "second_Name": "Test",
+  "email": "CreditOffer1@outlook.com"
+}
+
+### filtr ofert
+
+POST http://localhost:8080/api/searchHistory/offers/filter
+Content-Type: application/json
+
+{
+  "amount": 4000000000,
+  "maxRrso": 13,
+  "maxCommissionPercent": 6,
+  "maxPeriodInMonths": 360,
+  "client": {
+    "id": 1
+  }
+}
+
+### Wysyłka maila do wszystkich klientów z nową ofertą
+POST http://localhost:8080/api/send-message
+Content-Type: application/json
+
+{
+  "name": "Pożyczka nowa",
+  "minimumAmount": 1000.00,
+  "maximumAmount": 3000000000.00,
+  "rrso": 12.00,
+  "commissionPercent": 4.00,
+  "periodInMonths": 420,
+  "url": "https://www.pekao.com.pl/klient-indywidualny/pozyczanie-gotowki/pozyczka-na-dowolny-cel.html",
+  "bank": {
+    "id": 3,
+    "name": "Bank Pekao"
+  },
+  "typeOfLoan": {
+    "id": 3,
+    "name_Type": "pożyczka gotówkowa"
+  }
+}

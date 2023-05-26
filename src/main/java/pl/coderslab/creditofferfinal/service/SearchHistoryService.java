@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class SearchHistoryService {
     private final SearchHistoryRepository searchHistoryRepository;
-    private final SearchHistoryMapper searchHistoryMapper;
+    public final SearchHistoryMapper searchHistoryMapper;
     private final OfferRepository offerRepository;
     private final ClientMapper clientMapper;
 

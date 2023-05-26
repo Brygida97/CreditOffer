@@ -15,7 +15,7 @@ POST http://localhost:8080/api/searchHistory/offers/filter
 Content-Type: application/json
 
 {
-  "amount": 10000000,
+  "amount": 1000,
   "maxRrso": 13,
   "maxCommissionPercent": 6,
   "maxPeriodInMonths": 360,
