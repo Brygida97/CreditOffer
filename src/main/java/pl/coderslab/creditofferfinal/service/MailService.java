@@ -46,8 +46,8 @@ public class MailService {
         emailContentBuilder.append("Prowizja: ").append(offerDTO.getCommissionPercent()).append("\n");
         emailContentBuilder.append("Maksymalny okres kredytowania: ").append(offerDTO.getPeriodInMonths()).append("\n");
         emailContentBuilder.append("Link do oferty: ").append(offerDTO.getUrl()).append("\n");
-        emailContentBuilder.append("Bank: ").append(offerDTO.getBank()).append("\n");
-        emailContentBuilder.append("Typ oferty: ").append(offerDTO.getTypeOfLoan()).append("\n\n");
+        emailContentBuilder.append("Bank: ").append(offerDTO.getBank().getName()).append("\n");
+        emailContentBuilder.append("Typ oferty: ").append(offerDTO.getTypeOfLoan().getName_Type()).append("\n\n");
         emailContentBuilder.append("Zapraszamy do skorzystania z naszych ofert.\n\n");
         emailContentBuilder.append("Pozdrawiamy,\nTwoja wyszukiwarka ofert kredytowych");
 
