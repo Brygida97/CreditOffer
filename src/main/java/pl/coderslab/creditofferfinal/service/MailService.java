@@ -23,10 +23,11 @@ public class MailService {
 
     private ClientRepository clientRepository;
 
+
     public void sendSimpleEmail(String to, String content) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(to);
-        msg.setFrom("Blog Example <from@email.com>");
+        msg.setFrom("Blog Example <CreditOffer1@outlook.com>");
 
         msg.setSubject("Nowa oferta kredytowa");
         msg.setText(content);
@@ -53,24 +54,30 @@ public class MailService {
         return emailContentBuilder.toString();
     }
 
-    public void sendNewOfferNotificationEmail(OfferDTO offerDTO) {
+    public int sendNewOfferNotificationEmail(OfferDTO offerDTO) {
         String emailContent = generateEmailContent(offerDTO);
 
         List<Client> clients = clientRepository.findAll();
+        int sentEmailCount = 0;
 
         for (Client client : clients){
             String recipientEmail = client.getEmail();
             sendSimpleEmail(recipientEmail, emailContent);
+            sentEmailCount++;
         }
+
+        return sentEmailCount;
     }
 
-    public OfferDTO createOfferAndSenMessage(OfferDTO offerDTO) {
+
+    public Offer createOfferAndSenMessage(OfferDTO offerDTO) {
         Offer offer = offerMapper.toEntity(offerDTO);
         Offer createdOffer = offerRepository.save(offer);
         OfferDTO createdOfferDTO = offerMapper.toDto(createdOffer);
 
         sendNewOfferNotificationEmail(createdOfferDTO);
 
-        return createdOfferDTO;
+        return createdOffer;
     }
+
 }

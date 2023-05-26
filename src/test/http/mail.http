@@ -1,3 +1,13 @@
+### dodanie nowego klienta
+POST http://localhost:8080/client
+Content-Type: application/json
+
+{
+  "first_Name": "Test2",
+  "second_Name": "Test2",
+  "email": "CreditOffer1@outlook.com"
+}
+
 ### Wysyłka maila do wszystkich klientów z nową ofertą
 POST http://localhost:8080/mail
 Content-Type: application/json
