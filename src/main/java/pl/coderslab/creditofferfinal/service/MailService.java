@@ -27,7 +27,7 @@ public class MailService {
     public void sendSimpleEmail(String to, String content) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(to);
-        msg.setFrom("Blog Example <CreditOffer1@outlook.com>");
+        msg.setFrom("Credit Offer - Twoja wyszukiwarka <CreditOffer1@outlook.com>");
 
         msg.setSubject("Nowa oferta kredytowa");
         msg.setText(content);

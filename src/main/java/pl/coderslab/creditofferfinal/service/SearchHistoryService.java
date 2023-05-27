@@ -50,6 +50,8 @@ public class SearchHistoryService {
         if (optionalSearchHistory.isPresent()){
             SearchHistory searchHistory = optionalSearchHistory.get();
             searchHistory.setAmount(searchHistoryDTO.getAmount());
+            searchHistory.setMaxCommissionPercent(searchHistoryDTO.getMaxCommissionPercent());
+            searchHistory.setMaxPeriodInMonths(searchHistoryDTO.getMaxPeriodInMonths());
             SearchHistory updatedSearchHistory = searchHistoryRepository.save(searchHistory);
             return searchHistoryMapper.toDto(updatedSearchHistory);
         }
