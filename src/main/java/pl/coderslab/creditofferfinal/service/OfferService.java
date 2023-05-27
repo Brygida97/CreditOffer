@@ -44,6 +44,12 @@ public class OfferService {
         if (optionalOffer.isPresent()) {
             Offer offer = optionalOffer.get();
             offer.setName(offerDTO.getName());
+            offer.setMinimumAmount(offerDTO.getMinimumAmount());
+            offer.setMaximumAmount(offerDTO.getMaximumAmount());
+            offer.setRRSO(offerDTO.getRRSO());
+            offer.setCommissionPercent(offerDTO.getCommissionPercent());
+            offer.setPeriodInMonths(offerDTO.getPeriodInMonths());
+            offer.setUrl(offerDTO.getUrl());
             Offer updatedOffer = offerRepository.save(offer);
             return offerMapper.toDto(updatedOffer);
         }

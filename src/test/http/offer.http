@@ -27,17 +27,17 @@ Content-Type: application/json
 }
 
 ### update danego banku za pośrednictwem wyboru danego ID
-PUT http://localhost:8080/api/offers/13
+PUT http://localhost:8080/api/offers/11
 Content-Type: application/json
 
 {
-  "name": "Pożyczka nowa",
-  "minimumAmount": 1000.00,
-  "maximumAmount": 250000.00,
-  "rrso": 12.00,
-  "commissionPercent": 4.00,
-  "periodInMonths": 120,
-  "url": "https://www.pekao.com.pl/klient-indywidualny/pozyczanie-gotowki/pozyczka-na-dowolny-cel.html",
+  "name": "Nowa nazwa",
+  "minimumAmount": 8000.00,
+  "maximumAmount": 22250000.00,
+  "rrso": 1222.00,
+  "commissionPercent": 422.00,
+  "periodInMonths": 12220,
+  "url": "https://www.pekao.com.pl",
   "bank": {
     "id": 3,
     "name": "Bank Pekao"
@@ -49,7 +49,7 @@ Content-Type: application/json
 }
 
 ### usunięcie danego banku rozróżniając go po ID
-DELETE http://localhost:8080/api/offers/12
+DELETE http://localhost:8080/api/offers/11
 
 ### 3 oferty z najniższym RRSO
 GET http://localhost:8080/api/offers/lowest-rrso

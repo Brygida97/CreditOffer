@@ -2,7 +2,7 @@
 GET http://localhost:8080/banks
 
 ### pobranie banku za pomocą wskazania danego ID
-GET http://localhost:8080/banks/7
+GET http://localhost:8080/banks/2
 
 ### dodanie nowego banku
 POST http://localhost:8080/banks
@@ -13,11 +13,11 @@ Content-Type: application/json
 }
 
 ### update danego banku za pośrednictwem wyboru danego ID
-PUT http://localhost:8080/banks/7
+PUT http://localhost:8080/banks/6
 Content-Type: application/json
 
 {
-  "name": "Alior Bank"
+  "name": "Aion Bank"
 }
 
 ### usunięcie danego banku rozróżniając go po ID

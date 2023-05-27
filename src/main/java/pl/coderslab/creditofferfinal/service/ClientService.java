@@ -4,28 +4,16 @@ package pl.coderslab.creditofferfinal.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.coderslab.creditofferfinal.dto.ClientDTO;
-import pl.coderslab.creditofferfinal.dto.OfferDTO;
 import pl.coderslab.creditofferfinal.entity.Client;
-import pl.coderslab.creditofferfinal.entity.Offer;
-import pl.coderslab.creditofferfinal.entity.SearchHistory;
 import pl.coderslab.creditofferfinal.exception.BankNotFoundException;
 import pl.coderslab.creditofferfinal.exception.ClientNotFoundException;
 import pl.coderslab.creditofferfinal.mapper.ClientMapper;
 import pl.coderslab.creditofferfinal.repository.ClientRepository;
 import pl.coderslab.creditofferfinal.repository.OfferRepository;
 import pl.coderslab.creditofferfinal.repository.SearchHistoryRepository;
-import java.math.BigDecimal;
+
 import java.util.List;
 import java.util.Optional;
-import java.util.Properties;
-import java.util.stream.Collectors;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 
 @Service

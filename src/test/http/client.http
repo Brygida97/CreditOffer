@@ -9,7 +9,7 @@ POST http://localhost:8080/client
 Content-Type: application/json
 
 {
-  "first_Name": "Test2",
+  "first_Name": "",
   "second_Name": "Test2",
   "email": "krzywdziakbrygida97@gmail.com"
 }
