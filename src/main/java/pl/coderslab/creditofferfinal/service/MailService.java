@@ -69,7 +69,6 @@ public class MailService {
         return sentEmailCount;
     }
 
-
     public Offer createOfferAndSenMessage(OfferDTO offerDTO) {
         Offer offer = offerMapper.toEntity(offerDTO);
         Offer createdOffer = offerRepository.save(offer);
@@ -79,5 +78,4 @@ public class MailService {
 
         return createdOffer;
     }
-
 }
