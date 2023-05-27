@@ -13,7 +13,7 @@ POST http://localhost:8080/mail
 Content-Type: application/json
 
 {
-  "name": "Pożyczka nowa",
+  "name": "111Pożyczka nowa",
   "minimumAmount": 1000.00,
   "maximumAmount": 250000.00,
   "rrso": 12.00,

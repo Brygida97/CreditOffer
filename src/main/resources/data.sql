@@ -70,5 +70,15 @@ VALUES ('Oferta "Nowy kredyt gotówkowy"', 1000.00, 30000.00, 17.21, 1.00, 120,
         'https://www.santander.pl/klient-indywidualny/kredyty/nowy-kredyt-gotowkowy?santag-camp=advnav-menu-kredyty_ofertaNTP_0523',
         5, 3);
 
+# Wypełnienie danymi tabeli types_of_loans
+
+INSERT INTO client (email, first_name, second_name)
+VALUES ('');
+INSERT INTO client (email, first_name, second_name)
+VALUES ('krzywdziakbrygida97@gmail.com','test1','test1');
+INSERT INTO client (email, first_name, second_name)
+VALUES ('CreditOffer1@outlook.com','test2','test2');
+INSERT INTO client (email, first_name, second_name)
+VALUES ('CreditOffer1@outlook.com','test3','test3');
 
 
